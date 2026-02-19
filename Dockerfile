@@ -68,6 +68,7 @@ RUN python3 -m pip install \
     "ipykernel" \
     "ipywidgets" \
     "pandas" \
+    "protobuf" \
     "matplotlib"
 
 COPY --from=builder /wheels /wheels
