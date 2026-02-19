@@ -67,12 +67,15 @@ RUN python3 -m pip install \
     "jupyterlab>=4.0" \
     "ipykernel" \
     "ipywidgets" \
+    "datasets" \
     "pandas" \
     "protobuf" \
+    "diskcache" \
     "matplotlib"
 
 COPY --from=builder /wheels /wheels
 RUN python3 -m pip install /wheels/flash_attn-*.whl
+RUN pip install llama-cpp-python --index-url https://abetlen.github.io/llama-cpp-python/whl/cu121
 
 WORKDIR /notebooks
 EXPOSE 8888
